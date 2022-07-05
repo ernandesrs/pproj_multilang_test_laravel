@@ -22,7 +22,13 @@ Route::group([
         return view("welcome");
     })->name("front.index");
 
-    //
+    Route::get("/contact", function () {
+        return view("contact");
+    })->name("front.contact");
+
+    Route::get("/about", function () {
+        return view("about");
+    })->name("front.about");
 });
 
 Route::get("/", function () {

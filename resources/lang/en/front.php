@@ -5,5 +5,12 @@ return [
         "title" => "A website in english",
         "description" => "A description in english",
     ],
-    'welcome' => "Hello World, Welcome!"
+    'nav' => [
+        'index' => "Home",
+        'contact' => "Contact",
+        'about' => "About",
+    ],
+    'welcome' => "Hello World, Welcome!",
+    'about' => "About us",
+    'contact' => "Contact",
 ];
