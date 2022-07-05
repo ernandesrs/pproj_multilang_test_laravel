@@ -20,9 +20,11 @@ Route::group([
 
     Route::get("/", function () {
         return view("welcome");
-    })->name("front.front");
+    })->name("front.index");
+
+    //
 });
 
 Route::get("/", function () {
-    return redirect()->route("front.front", ["locale" => app()->getLocale()]);
+    return redirect()->route("front.index", ["locale" => app()->getLocale()]);
 });
