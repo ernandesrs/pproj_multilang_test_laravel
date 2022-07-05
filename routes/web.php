@@ -13,6 +13,16 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
+Route::group([
+    "prefix" => "{locale}",
+    "middleware" => "setlocale"
+], function () {
+
+    Route::get("/", function () {
+        return view("welcome");
+    })->name("front.front");
+});
+
+Route::get("/", function () {
+    return redirect()->route("front.front", ["locale" => app()->getLocale()]);
 });

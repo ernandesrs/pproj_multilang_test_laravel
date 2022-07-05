@@ -5,7 +5,8 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
-    <title>Laravel</title>
+    <meta name="description" content="{{ __('front.app.description') }}">
+    <title>Laravel - {{ __('front.app.title') }}</title>
 
     <!-- Fonts -->
     <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700&display=swap" rel="stylesheet">
@@ -27,13 +28,14 @@
                 <div class="card-header">
                     <ul class="nav justify-content-end">
                         <a class="nav-link disabled">Idiomas:</a>
-                        @foreach (['en', 'pt-BR'] as $lang)
-                            <a class="nav-link" href="#">{{ Str::upper($lang) }}</a>
+                        @foreach (config('app.allowed_locales') as $lang)
+                            <a class="nav-link {{ app()->getLocale() === $lang ? 'disabled' : null }}"
+                                href="{{ route('front.front', ['locale' => $lang]) }}">{{ Str::upper($lang) }}</a>
                         @endforeach
                     </ul>
                 </div>
                 <div class="card-body px-5">
-                    <h1>{{ __('Olá Mundo, Bem Vindo!') }}</h1>
+                    <h1>{{ __('front.welcome') }}</h1>
                 </div>
             </div>
         </div>
