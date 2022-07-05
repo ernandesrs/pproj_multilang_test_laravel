@@ -46,7 +46,7 @@
                 <a class="nav-link disabled">Idiomas:</a>
                 @foreach (config('app.allowed_locales') as $lang)
                     <a class="nav-link {{ app()->getLocale() === $lang ? 'disabled' : null }}"
-                        href="{{ route('front.index', ['locale' => $lang]) }}">{{ Str::upper($lang) }}</a>
+                        href="{{ route(Route::currentRouteName(), ['locale' => $lang]) }}">{{ Str::upper($lang) }}</a>
                 @endforeach
             </ul>
         </div>

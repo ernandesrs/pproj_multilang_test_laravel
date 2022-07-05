@@ -29,6 +29,9 @@ Route::group([
     Route::get("/about", function () {
         return view("about");
     })->name("front.about");
+
+    Route::get("/locale-change/{tlocale}", function () {
+    })->name("front.changeLocale");
 });
 
 Route::get("/", function () {
